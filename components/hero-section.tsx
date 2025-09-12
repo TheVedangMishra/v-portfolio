@@ -32,15 +32,15 @@ export function HeroSection() {
       <div className="container mx-auto px-4 text-center z-10 relative">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-            <span className="text-foreground">Future</span>{" "}
-            <span className="text-primary animate-pulse-glow">Data-Driven</span>{" "}
-            <span className="text-foreground">AI Analyst</span>
+            <span className="text-foreground">Vedang Mishra</span>{" "}
+            <span className="text-primary animate-pulse-glow">Data Analyst</span>{" "}
+            <span className="text-foreground">& Aspiring Investment Analyst</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-pretty max-w-2xl mx-auto">
-            Transforming raw data into actionable insights through the power of artificial intelligence and advanced
-            analytics
+            Python | SQL | Power BI. Open to internships, full-time roles, and investment conversations.
           </p>
+          {/* </CHANGE> */}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button size="lg" className="text-lg px-8 py-6 animate-pulse-glow" onClick={scrollToAbout}>

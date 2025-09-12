@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
+import { EducationSection } from "@/components/education-section"
+// </CHANGE>
 import { ProjectsSection } from "@/components/projects-section"
 import { SkillsSection } from "@/components/skills-section"
 import { ConnectSection } from "@/components/connect-section"
@@ -13,7 +15,8 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "projects", "skills", "connect"]
+      const sections = ["home", "about", "education", "projects", "skills", "connect"]
+      // </CHANGE>
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -57,6 +60,8 @@ export default function Portfolio() {
       <main>
         <HeroSection />
         <AboutSection />
+        <EducationSection />
+        {/* </CHANGE> */}
         <ProjectsSection />
         <SkillsSection />
         <ConnectSection />

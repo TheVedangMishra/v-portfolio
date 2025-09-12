@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Linkedin, Github, Twitter, Send, MapPin, Phone } from "lucide-react"
+import { Mail, Linkedin, Github, Send, MapPin, Phone } from "lucide-react"
 import { DataFlowBackground } from "./data-flow-background"
 
 export function ConnectSection() {
@@ -31,28 +31,23 @@ export function ConnectSection() {
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:your.email@example.com",
+      url: "mailto:vedangm64@gmail.com",
       color: "hover:text-red-500",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/yourprofile",
+      url: "https://linkedin.com/in/vedangm",
       color: "hover:text-blue-600",
     },
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/TheVedangMishra",
       color: "hover:text-gray-800",
     },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://twitter.com/yourusername",
-      color: "hover:text-blue-400",
-    },
   ]
+  // </CHANGE>
 
   return (
     <section id="connect" className="py-20 relative overflow-hidden">
@@ -65,7 +60,7 @@ export function ConnectSection() {
               Let's <span className="text-primary">Connect</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Ready to collaborate on data-driven projects or discuss opportunities in AI analytics
+              Have a project, hiring need, or investment conversation? Let's discuss how we can work together
             </p>
           </div>
 
@@ -145,7 +140,7 @@ export function ConnectSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-muted-foreground">your.email@example.com</p>
+                      <p className="text-muted-foreground">vedangm64@gmail.com</p>
                     </div>
                   </div>
 
@@ -155,7 +150,7 @@ export function ConnectSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Location</h4>
-                      <p className="text-muted-foreground">Your City, Country</p>
+                      <p className="text-muted-foreground">Mohali, India</p>
                     </div>
                   </div>
 
@@ -165,9 +160,10 @@ export function ConnectSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Phone</h4>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                      <p className="text-muted-foreground">+91 95802 48500</p>
                     </div>
                   </div>
+                  {/* </CHANGE> */}
                 </CardContent>
               </Card>
 
@@ -176,7 +172,7 @@ export function ConnectSection() {
                   <CardTitle className="text-2xl">Follow Me</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4">
                     {socialLinks.map((link) => {
                       const IconComponent = link.icon
                       return (
@@ -202,9 +198,10 @@ export function ConnectSection() {
                 <CardContent className="p-6 text-center">
                   <h3 className="text-xl font-bold mb-2">Open to Opportunities</h3>
                   <p className="text-muted-foreground">
-                    I'm actively seeking internships, entry-level positions, and collaborative projects in data science
-                    and AI analytics. Let's build something amazing together!
+                    I'm actively seeking roles as a Data Analyst and exploring opportunities in Investment Analysis. If
+                    you're an investor, hiring manager, or team lead looking for a driven analyst, let's talk!
                   </p>
+                  {/* </CHANGE> */}
                 </CardContent>
               </Card>
             </div>

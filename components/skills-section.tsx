@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Plus, Edit, Trash2, Brain, Database, BarChart3, Code, Cloud, Zap } from "lucide-react"
+import { Plus, Edit, Trash2, Code, Database, BarChart3, Cloud, Brain, Globe } from "lucide-react"
 import { DataFlowBackground } from "./data-flow-background"
 
 interface Skill {
@@ -15,31 +15,95 @@ interface Skill {
   name: string
   category: string
   icon: string
+  description: string
 }
 
 const iconMap = {
-  Brain,
+  Code,
   Database,
   BarChart3,
-  Code,
   Cloud,
-  Zap,
+  Brain,
+  Globe,
 }
 
 export function SkillsSection() {
   const [skills, setSkills] = useState<Skill[]>([
-    { id: "1", name: "Python", category: "Programming", icon: "Code" },
-    { id: "2", name: "Machine Learning", category: "AI/ML", icon: "Brain" },
-    { id: "3", name: "SQL", category: "Database", icon: "Database" },
-    { id: "4", name: "Data Visualization", category: "Analytics", icon: "BarChart3" },
-    { id: "5", name: "Pandas", category: "Programming", icon: "Code" },
-    { id: "6", name: "Scikit-learn", category: "AI/ML", icon: "Brain" },
-    { id: "7", name: "Tableau", category: "Analytics", icon: "BarChart3" },
-    { id: "8", name: "AWS", category: "Cloud", icon: "Cloud" },
-    { id: "9", name: "TensorFlow", category: "AI/ML", icon: "Brain" },
-    { id: "10", name: "Apache Spark", category: "Big Data", icon: "Zap" },
-    { id: "11", name: "PostgreSQL", category: "Database", icon: "Database" },
-    { id: "12", name: "Power BI", category: "Analytics", icon: "BarChart3" },
+    {
+      id: "1",
+      name: "Python",
+      category: "Programming",
+      icon: "Code",
+      description:
+        "Data wrangling and automation (Pandas, NumPy), scripting for ETL pipelines, prototype ML models with scikit-learn",
+    },
+    {
+      id: "2",
+      name: "SQL",
+      category: "Database",
+      icon: "Database",
+      description:
+        "Querying, joins, window functions, aggregates, stored procedures; experienced building analytics tables for dashboards",
+    },
+    {
+      id: "3",
+      name: "Power BI",
+      category: "Data Visualization",
+      icon: "BarChart3",
+      description: "Creating KPI-driven visual reports and interactive dashboards for non-technical stakeholders",
+    },
+    {
+      id: "4",
+      name: "Tableau",
+      category: "Data Visualization",
+      icon: "BarChart3",
+      description:
+        "Advanced data storytelling with charts and designing comprehensive business intelligence dashboards",
+    },
+    {
+      id: "5",
+      name: "AWS",
+      category: "Cloud & Deployment",
+      icon: "Cloud",
+      description:
+        "Experience deploying lightweight services and artifacts to AWS (S3/EC2). Familiarity with Docker and CI/CD pipelines",
+    },
+    {
+      id: "6",
+      name: "Machine Learning",
+      category: "Statistics & ML",
+      icon: "Brain",
+      description:
+        "Regression, classification (logistic regression, decision trees), model evaluation, feature engineering basics",
+    },
+    {
+      id: "7",
+      name: "Pandas",
+      category: "Programming",
+      icon: "Code",
+      description: "Advanced data manipulation, cleaning, and transformation for large datasets",
+    },
+    {
+      id: "8",
+      name: "NumPy",
+      category: "Programming",
+      icon: "Code",
+      description: "Numerical computing and array operations for data analysis and scientific computing",
+    },
+    {
+      id: "9",
+      name: "React",
+      category: "Web & Frontend",
+      icon: "Globe",
+      description: "Building interactive dashboards and interfaces for data visualization applications",
+    },
+    {
+      id: "10",
+      name: "Flask",
+      category: "Web & Frontend",
+      icon: "Globe",
+      description: "Creating web applications and APIs for data science projects and dashboard backends",
+    },
   ])
 
   const [editingSkill, setEditingSkill] = useState<Skill | null>(null)
@@ -48,10 +112,18 @@ export function SkillsSection() {
     name: "",
     category: "",
     icon: "Code",
+    description: "",
   })
 
-  const categories = ["Programming", "AI/ML", "Database", "Analytics", "Cloud", "Big Data"]
-  const iconOptions = ["Code", "Brain", "Database", "BarChart3", "Cloud", "Zap"]
+  const categories = [
+    "Programming",
+    "Database",
+    "Data Visualization",
+    "Cloud & Deployment",
+    "Statistics & ML",
+    "Web & Frontend",
+  ]
+  const iconOptions = ["Code", "Database", "BarChart3", "Cloud", "Brain", "Globe"]
 
   const handleEdit = (skill: Skill) => {
     setEditingSkill(skill)
@@ -59,6 +131,7 @@ export function SkillsSection() {
       name: skill.name,
       category: skill.category,
       icon: skill.icon,
+      description: skill.description,
     })
   }
 
@@ -76,7 +149,7 @@ export function SkillsSection() {
 
     setEditingSkill(null)
     setIsAddingSkill(false)
-    setFormData({ name: "", category: "", icon: "Code" })
+    setFormData({ name: "", category: "", icon: "Code", description: "" })
   }
 
   const handleDelete = (id: string) => {
@@ -135,6 +208,15 @@ export function SkillsSection() {
           </SelectContent>
         </Select>
       </div>
+      <div>
+        <Label htmlFor="description">Description</Label>
+        <Input
+          id="description"
+          value={formData.description}
+          onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+          placeholder="Enter skill description"
+        />
+      </div>
       <div className="flex gap-2 pt-4">
         <Button onClick={handleSave}>Save Skill</Button>
         <Button
@@ -142,7 +224,7 @@ export function SkillsSection() {
           onClick={() => {
             setEditingSkill(null)
             setIsAddingSkill(false)
-            setFormData({ name: "", category: "", icon: "Code" })
+            setFormData({ name: "", category: "", icon: "Code", description: "" })
           }}
         >
           Cancel
@@ -200,7 +282,7 @@ export function SkillsSection() {
                   <span className="text-primary">{category}</span>
                 </h3>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {categorySkills.map((skill, skillIndex) => {
                     const IconComponent = iconMap[skill.icon as keyof typeof iconMap] || Code
 
@@ -213,7 +295,7 @@ export function SkillsSection() {
                           <div className="absolute top-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-orange-400 to-transparent data-particle"></div>
                         </div>
 
-                        <CardContent className="p-6 text-center">
+                        <CardContent className="p-6">
                           <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                             <Dialog>
                               <DialogTrigger asChild>
@@ -249,7 +331,10 @@ export function SkillsSection() {
                             </div>
                           </div>
 
-                          <h4 className="font-semibold text-sm">{skill.name}</h4>
+                          <div className="text-center">
+                            <h4 className="font-semibold text-lg mb-2">{skill.name}</h4>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{skill.description}</p>
+                          </div>
                         </CardContent>
                       </Card>
                     )
